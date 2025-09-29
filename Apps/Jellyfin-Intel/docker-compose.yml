@@ -1,0 +1,34 @@
+jellyfin-stable:
+image: jellyfin/jellyfin:latest
+container_name: jellyfin-stable
+restart: unless-stopped
+
+# User and Group IDs for correct file permissions
+environment:
+  - PUID=1000             # Change this to your user's UID (id -u)
+  - PGID=1000             # Change this to your user's GID (id -g)
+  - TZ=America/New_York   # Change to your timezone (e.g., Europe/London)
+  # Optional: Published URL if using a reverse proxy
+  # - JELLYFIN_PublishedServerUrl=http://192.168.1.10:8096
+  
+# Map device for Intel QuickSync/VAAPI hardware transcoding
+# /dev/dri is the standard device path for Intel GPUs on Linux
+devices:
+  - /dev/dri:/dev/dri
+  
+# Add container to the host's render group for GPU access
+group_add:
+  - "109" # !!! IMPORTANT: Replace "109" with the GID of your 'render' or 'video' group on your host !!!
+
+# Ports for web access, HTTPS, DLNA, etc.
+ports:
+  - 8096:8096/tcp   # Main web interface (http://<host-ip>:8096)
+  - 8920:8920/tcp   # HTTPS (optional)
+  - 7359:7359/udp   # Discovery (optional)
+  - 1900:1900/udp   # DLNA (optional)
+
+# Volume mappings for configuration, cache, and media libraries
+volumes:
+   - /DATA/AppData/jellyfin/config:/config # SEPARATE Configuration files
+   - /media/ZimaOS-HD/Media/Movies:movies  # Shared media library (Read-only)
+   - /media/ZimaOS-HD/Media/TV Shows:tvshows # Shared media library (Read-only)
