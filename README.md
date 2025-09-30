@@ -1,5 +1,6 @@
 
-![CasaOS Coolstore]<img width="1920" height="1280" alt="zimaos01" src="https://github.com/user-attachments/assets/03bbf833-9f25-418a-a313-e788b7899ad1" />
+![CasaOS Coolstore](<img width="1920" height="1280" alt="zimaos01" src="https://github.com/user-attachments/assets/325eab66-2c05-4149-806d-19196401fc09" />)
+
 
 
 # CasaOS Coolstore
