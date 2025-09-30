@@ -1,5 +1,5 @@
 
-![CasaOS Coolstore](zimaos01.png =960x640)
+![CasaOS Coolstore]([zimaos01.png](https://github.com/W0rse123/Kalata-Store/blob/main/zimaos01.png)=960x640)
 
 
 
