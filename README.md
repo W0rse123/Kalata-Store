@@ -1,5 +1,5 @@
 
-![CasaOS Coolstore] 
+# CasaOS Coolstore-The best store and always up to date
 
 <img src="https://i.imgur.com/QXZHlIi.png" width="50%" />
 
