@@ -1,0 +1,62 @@
+name: mystifying_antonio
+services:
+  jellyfin:
+    cpu_shares: 90
+    command: []
+    container_name: jellyfin
+    deploy:
+      resources:
+        limits:
+          memory: 16658272256
+        reservations:
+          devices: []
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://<your-ip-address>
+      - PGID=1000
+      - PUID=1000
+      - TZ=Etc/UTC
+    image: jellyfin/jellyfin:latest
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/jellyfin.png
+    ports:
+      - target: 8096
+        published: "8096"
+        protocol: ""
+      - target: 8920
+        published: "8920"
+        protocol: ""
+      - target: 7359
+        published: "7359"
+        protocol: ""
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/jellyfin/config
+        target: /config
+      - type: bind
+        source: /media/ZimaOS-HD/AppData/jellyfin/cache
+        target: /cache
+      - type: bind
+        source: /DATA/Media/TV Shows
+        target: /data/tvshows
+      - type: bind
+        source: /DATA/Media/Movies
+        target: /data/movies
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/jellyfin.png
+  index: /
+  is_uncontrolled: false
+  port_map: "8096"
+  scheme: http
+  store_app_id: mystifying_antonio
+  title:
+    custom: Jellyfin-Amd
+    en_us: jellyfin

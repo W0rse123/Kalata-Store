@@ -1,0 +1,41 @@
+name: lively_emily
+services:
+  flaresolverr:
+    cpu_shares: 90
+    command: []
+    container_name: flaresolverr
+    deploy:
+      resources:
+        limits:
+          memory: 16658272256
+        reservations:
+          devices: []
+    environment:
+      - LOG_LEVEL=info
+      - MAX_WORKERS=5
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/flaresolverr.png
+    ports:
+      - target: 8191
+        published: "8191"
+        protocol: tcp
+    restart: unless-stopped
+    volumes: []
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/flaresolverr.png
+  index: /
+  is_uncontrolled: false
+  port_map: "8191"
+  scheme: http
+  store_app_id: lively_emily
+  title:
+    custom: Flaresolverr
+    en_us: flaresolverr

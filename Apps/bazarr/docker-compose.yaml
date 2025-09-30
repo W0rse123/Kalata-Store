@@ -1,0 +1,54 @@
+name: priceless_andres
+services:
+  bazarr:
+    cpu_shares: 90
+    command: []
+    container_name: bazarr
+    deploy:
+      resources:
+        limits:
+          memory: 16658272256
+        reservations:
+          devices: []
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - TZ=Etc/UTC
+    image: linuxserver/bazarr:latest
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/bazarr.webp
+    ports:
+      - target: 6767
+        published: "6767"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/bazarr/config
+        target: /config
+      - type: bind
+        source: /DATA/Media/Movies
+        target: /movies
+      - type: bind
+        source: /DATA/Media/TV Shows
+        target: /tv
+      - type: bind
+        source: /DATA/Downloads
+        target: /downloads
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/bazarr.webp
+  index: /
+  is_uncontrolled: false
+  port_map: "6767"
+  scheme: http
+  store_app_id: priceless_andres
+  title:
+    custom: Bazarr
+    en_us: bazarr
