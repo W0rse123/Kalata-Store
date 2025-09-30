@@ -1,5 +1,5 @@
 
-![CasaOS Coolstore](zimaos01.png)
+![CasaOS Coolstore](zimaos01.png =960x640)
 
 
 
