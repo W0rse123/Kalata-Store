@@ -1,7 +1,10 @@
 
 # CasaOS Coolstore-The best store and always up to date
 
-<img src="https://i.imgur.com/QXZHlIi.png" width="50%" />
+<p align="center">
+  <img src="https://i.imgur.com/QXZHlIi.png" alt="Banner" width="80%" />
+</p>
+
 
 
 
